@@ -2,7 +2,7 @@
 
 ### Start Guide:
 
-1. on Ubuntu
+1. on Ubuntu:
 ```
 sudo apt install python3-tk
 ```

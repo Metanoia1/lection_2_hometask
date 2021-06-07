@@ -3,7 +3,7 @@ import turtle
 
 def draw_triangle(order=1, step=25, angle=-60, turn=1):
 
-    if order < 0:
+    if order == 0:
         return
 
     if turn == 1:
@@ -24,9 +24,9 @@ def draw_triangle(order=1, step=25, angle=-60, turn=1):
 def draw_triangle_in_one_direction(order=1, step=25, angle=-60, turn=1):
 
     if order % 2 == 0:
-        turtle.setheading(60)
-    else:
         turtle.setheading(0)
+    else:
+        turtle.setheading(60)
 
     draw_triangle(order=order, step=step, angle=angle, turn=turn)
 
@@ -46,7 +46,7 @@ def main(order=1, step=100, angle=-60, turn=1, x=-250, y=-250):
 if __name__ == "__main__":
     ORDER = 0
 
-    while ORDER <= 0:
+    while ORDER < 1 or ORDER > 10:
         ORDER = input("Enter the 'ORDER' value: ")
 
         if ORDER.isdigit():
