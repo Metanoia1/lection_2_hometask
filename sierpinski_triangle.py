@@ -1,7 +1,7 @@
 import turtle
 
 
-def draw_triangle(order=1, step=25, angle=-60, turn=1):
+def draw_triangle(order=1, step=50, angle=-60, turn=1):
 
     if order == 0:
         return
@@ -21,7 +21,7 @@ def draw_triangle(order=1, step=25, angle=-60, turn=1):
     draw_triangle(order - 1, step=step, angle=angle, turn=-turn)
 
 
-def draw_triangle_in_one_direction(order=1, step=25, angle=-60, turn=1):
+def draw_triangle_in_one_direction(order=1, step=50, angle=-60, turn=1):
 
     if order % 2 == 0:
         turtle.setheading(0)
@@ -31,7 +31,7 @@ def draw_triangle_in_one_direction(order=1, step=25, angle=-60, turn=1):
     draw_triangle(order=order, step=step, angle=angle, turn=turn)
 
 
-def main(order=1, step=100, angle=-60, turn=1, x=-250, y=-250):
+def main(order=1, step=250, angle=-60, turn=1, x=-250, y=-250):
 
     turtle.tracer(1, 0)
     step = step / (2 ** (order - 1))
