@@ -1,7 +1,7 @@
 import turtle
 
 
-def draw_triangle(order=1, step=50, angle=-60, turn=1):
+def draw_triangle(order=1, step=250, angle=-60, turn=1):
 
     if order == 0:
         return
@@ -21,24 +21,24 @@ def draw_triangle(order=1, step=50, angle=-60, turn=1):
     draw_triangle(order - 1, step=step, angle=angle, turn=-turn)
 
 
-def draw_triangle_in_one_direction(order=1, step=50, angle=-60, turn=1):
+def draw_triangle_in_one_direction(order=1, step=250, angle=-60, turn=1):
 
     if order % 2 == 0:
         turtle.setheading(0)
     else:
         turtle.setheading(60)
 
-    draw_triangle(order=order, step=step, angle=angle, turn=turn)
+    draw_triangle(order, step, angle, turn)
 
 
-def main(order=1, step=250, angle=-60, turn=1, x=-250, y=-250):
+def main(order=1, step=250, x=-250, y=-250):
 
-    turtle.tracer(1, 0)
     step = step / (2 ** (order - 1))
+    turtle.speed(0)
     turtle.penup()
     turtle.goto(x, y)
     turtle.pendown()
-    draw_triangle_in_one_direction(order=order, step=step, angle=angle, turn=turn)
+    draw_triangle_in_one_direction(order, step)
     turtle.forward(step)
     turtle.done()
 
@@ -47,11 +47,9 @@ if __name__ == "__main__":
     ORDER = 0
 
     while ORDER < 1 or ORDER > 10:
-        ORDER = input("Enter the 'ORDER' value: ")
-
-        if ORDER.isdigit():
-            ORDER = int(ORDER)
-        else:
+        try:
+            ORDER = int(input("Enter the 'ORDER' value: "))
+        except ValueError:
             ORDER = 0
 
-    main(order=ORDER)
+    main(ORDER)
